@@ -18,14 +18,17 @@ body = ''.join(lines)
 
 #print body
 
-server.sendmail("lesalogs@gmail.com", "lesalogs@gmail.com", body)
-server.quit()
+try:
+  server.sendmail("lesalogs@gmail.com", "lesalogs@gmail.com", body)
+  server.quit()
+  f.close()
+  f = open(logfile,"w")
+  f.write('start' + '\n')
+  f.close()
+except:
+  f.close()
 
-f.close()
-
-f = open(logfile,"w")
-f.write('start' + '\n')
-f.close()
+  
 
 
 
